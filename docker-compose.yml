@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  api:
+    build: .
+    container_name: titanic-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./predictions.db:/code/predictions.db
+    environment:
+      - DATABASE_URL=sqlite:///./predictions.db
